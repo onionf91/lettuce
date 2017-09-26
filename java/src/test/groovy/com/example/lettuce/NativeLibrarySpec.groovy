@@ -22,5 +22,9 @@ class NativeLibrarySpec extends Specification {
 
         expect:
         engine.run()
+
+        cleanup:
+        Util.cleanup engine
+        Util.cleanup callback
     }
 }

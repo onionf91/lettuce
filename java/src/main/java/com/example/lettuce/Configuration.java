@@ -12,5 +12,7 @@ public class Configuration {
         Callback cb = new CallbackImpl();
         Engine engine = new Engine(cb);
         engine.run();
+        Util.cleanup(engine);
+        Util.cleanup(cb);
     }
 }
