@@ -2,9 +2,7 @@ package com.example.lettuce;
 
 import org.bytedeco.javacpp.Loader;
 import org.bytedeco.javacpp.Pointer;
-import org.bytedeco.javacpp.annotation.Name;
-import org.bytedeco.javacpp.annotation.StdString;
-import org.bytedeco.javacpp.annotation.Virtual;
+import org.bytedeco.javacpp.annotation.*;
 
 public class EngineLibrary extends EngineConfigurer {
 
@@ -28,9 +26,9 @@ public class EngineLibrary extends EngineConfigurer {
         static { Loader.load(); }
         private native void allocate();
         public CallbackInfo() { allocate(); }
-        //public native @StdString @ByRef String getMessage();
-        public native @StdString String getMessage();
-        ///public native @StdString @ByPtr String getUsername();
-        public native @StdString String getUsername();
+        public native @ByRef String getMessage();
+        public native @ByPtr String getUsername();
+        //public native @StdString String getMessage();
+        //public native @StdString String getUsername();
     }
 }

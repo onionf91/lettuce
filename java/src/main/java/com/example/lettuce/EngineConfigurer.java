@@ -5,7 +5,7 @@ import org.bytedeco.javacpp.annotation.Properties;
 import org.bytedeco.javacpp.tools.InfoMap;
 import org.bytedeco.javacpp.tools.InfoMapper;
 
-@Properties(target = "com.example.lettuce.EngineLibrary", value = {
+@Properties(value = {
         @Platform(include = "engine.hpp", link = "engine")
 })
 public class EngineConfigurer implements InfoMapper {
