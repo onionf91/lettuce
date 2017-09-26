@@ -7,8 +7,26 @@ repositories {
     mavenCentral()
 }
 
+compileJava.doLast {
+    def projectDir = project.projectDir.absolutePath
+    def classesDir = compileJava.destinationDir
+    javaexec {
+        main = 'org.bytedeco.javacpp.tools.Builder'
+        classpath = files(configurations.javacpp.asPath)
+        args = [
+                '-cp', "$classesDir",
+                "-Dplatform.includepath=$projectDir/src/main/cpp/header"
+        ]
+    }
+}
+
+configurations {
+    javacpp
+}
+
 dependencies {
+    javacpp 'org.bytedeco:javacpp:1.3.3'
+    compile configurations.javacpp.dependencies
     compile 'org.codehaus.groovy:groovy-all:2.4.12'
-    compile 'org.bytedeco:javacpp:1.3.3'
     compile 'org.spockframework:spock-core:1.1-groovy-2.4'
 }
