@@ -59,7 +59,12 @@ allprojects {
     }
     if(project.convention.findPlugin(JavaPluginConvention)) {
         // Change the output directory for the main and test source sets back to the old path
-        sourceSets.main.output.classesDir = new File(buildDir, "classes/main")
-        sourceSets.test.output.classesDir = new File(buildDir, "classes/test")
+        sourceSets.main.java.outputDir = new File(buildDir, "classes/main")
+        sourceSets.test.java.outputDir = new File(buildDir, "classes/test")
+        sourceSets.main.groovy.outputDir = new File(buildDir, "classes/main")
+        sourceSets.test.groovy.outputDir = new File(buildDir, "classes/test")
+        // for Gradle 3.0 or older version.
+        //sourceSets.main.output.classesDir = new File(buildDir, "classes/main")
+        //sourceSets.test.output.classesDir = new File(buildDir, "classes/test")
     }
 }
