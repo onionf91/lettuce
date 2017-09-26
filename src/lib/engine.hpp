@@ -26,6 +26,11 @@ public:
 class CbInfo
 {
 public:
+    CbInfo();
+    ~CbInfo();
+    std::string msg_;
+    std::string usr_;
+    std::string *getUsername();
     const std::string &getMessage() const;
 };
 
