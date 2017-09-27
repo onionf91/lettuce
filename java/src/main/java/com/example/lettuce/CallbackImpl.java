@@ -12,15 +12,20 @@ public class CallbackImpl extends Callback {
 
     @Override
     public int call(CallbackInfo info, @ByPtr IntPointer aiCode) {
+        log.info("~~~~`");
         msg = info.getMessage();
+        log.info("~~~~`");
         usr = info.getUsername();
-        System.out.println(info.getMessage());
-        System.out.println(info.getUsername());
         log.info("~~~~`");
-        String sMsg = new String(info.sMessage_().pData().getStringBytes());
+        String sMsg = info.sMessage_().pData().getString();
         log.info("~~~~`");
+        byte[] data = info.sMessage_().pData().getStringBytes();
+        log.info("~~~~`");
+        System.out.println(msg);
+        System.out.println(usr);
         System.out.println(sMsg);
-        if (sMsg.equals(java)) {
+        System.out.println(data);
+        if (sMsg.equals(JAVA().pData().getString())) {
             aiCode.put(API_OK);
             return OK;
         }
@@ -29,9 +34,6 @@ public class CallbackImpl extends Callback {
             return NOT_OK;
         }
     }
-
-    String java = new String(JAVA().pData().getStringBytes());
-    String cpp = new String(CPP().pData().getStringBytes());
 
     public String msg;
     public String usr;
