@@ -48,8 +48,8 @@ public class EngineLibrary extends EngineProperties {
         public CallbackInfo() { allocate(); }
         public native @MemberGetter @ByVal tsNCharcb sMessage_();
         //public native void sMessage_(tsNCharcb sMessage_);
-        public native @ByRef String getMessage();
-        public native @ByPtr String getUsername();
+        public native @ByRef            String getMessage();
+        public native @ByPtr @StdString String getUsername();
         //public native @StdString String getMessage();
         //public native @StdString String getUsername();
     }
