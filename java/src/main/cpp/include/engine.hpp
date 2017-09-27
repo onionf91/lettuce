@@ -1,7 +1,22 @@
 #ifndef ENGINE_HPP
 #define ENGINE_HPP
 
+#define OK     (1)
+#define NOT_OK (0)
+
+#define API_OK       0
+#define API_OS_ERROR 1
+
 #include <string>
+
+typedef struct sNCharcb
+{
+    char * pData;
+    int    iDataLen;
+} tsNCharcb;
+
+const tsNCharcb JAVA = {(char *)"java", 4};
+const tsNCharcb CPP = {(char *)"cpp", 3};
 
 class Engine;
 class Callback;
@@ -20,7 +35,7 @@ public:
 class Callback
 {
 public:
-    virtual void call(CbInfo *info) = 0;
+    virtual int call(CbInfo *info, int *aiCode) = 0;
 };
 
 class CbInfo
@@ -32,6 +47,7 @@ public:
     std::string usr_;
     std::string *getUsername();
     const std::string &getMessage() const;
+    tsNCharcb sMessage_;
 };
 
 #endif // ENGINE_HPP

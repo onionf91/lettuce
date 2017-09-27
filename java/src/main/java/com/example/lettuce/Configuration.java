@@ -7,6 +7,7 @@ import static com.example.lettuce.EngineLibrary.*;
 @org.springframework.context.annotation.Configuration
 public class Configuration {
 
+
     @PostConstruct
     void postConstruct() {
         Callback cb = new CallbackImpl();

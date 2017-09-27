@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+bool flag;
+
 Engine::Engine(Callback *cb)
     : cb_(cb)
 {
@@ -16,9 +18,20 @@ Engine::~Engine()
 void Engine::run()
 {
     CbInfo info;
-    info.msg_ = "hello world";
+    int aiCode = -1;
+    info.msg_ = "change the world";
     info.usr_ = "jason";
-    cb_->call(&info);
+    if (flag) {
+        flag = false;
+        info.sMessage_ = JAVA;
+    }
+    else {
+        flag = true;
+        info.sMessage_ = CPP;
+    }
+    int result = cb_->call(&info, &aiCode);
+    std::cout << "callback result : " << result
+              << ", ai code : "       << aiCode << std::endl;
 }
 
 CbInfo::CbInfo()

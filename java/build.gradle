@@ -23,13 +23,13 @@ repositories {
 compileJava.doLast {
     def projectDir = project.projectDir.absolutePath
     def classesDir = compileJava.destinationDir
-    def osName = System.getProperty("os.name").toLowerCase().contains('linux')? 'linux' : 'osx'
+    def osName = System.getProperty("os.name").toLowerCase().contains('linux')? 'linux' : 'darwin'
     javaexec {
         main = 'org.bytedeco.javacpp.tools.Builder'
         classpath = files(configurations.javacpp.asPath)
         args = [
                 '-cp', "$classesDir",
-                "-Dplatform.includepath=$projectDir/src/main/cpp/header",
+                "-Dplatform.includepath=$projectDir/src/main/cpp/include",
                 "-Dplatform.linkpath=$projectDir/src/main/cpp/lib/$osName"
         ]
     }
