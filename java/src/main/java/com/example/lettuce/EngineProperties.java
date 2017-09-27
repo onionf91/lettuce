@@ -8,7 +8,7 @@ import org.bytedeco.javacpp.tools.InfoMapper;
 @Properties(value = {
         @Platform(include = "engine.hpp", link = "engine")
 })
-public class EngineConfigurer implements InfoMapper {
+public class EngineProperties implements InfoMapper {
 
     @Override
     public void map(InfoMap infoMap) {
