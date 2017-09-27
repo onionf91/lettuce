@@ -6,7 +6,7 @@
 class CbImplement : public Callback
 {
 public:
-    virtual void call(CbInfo *info);
+    virtual int call(CbInfo *info, int *aiCode);
 };
 
 #endif // CBIMPLEMENT_HPP
