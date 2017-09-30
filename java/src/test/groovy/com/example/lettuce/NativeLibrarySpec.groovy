@@ -26,7 +26,7 @@ class NativeLibrarySpec extends Specification {
         engine.run()
 
         cleanup:
-        Util.cleanup engine
-        Util.cleanup callback
+        engine.deallocate()
+        callback.deallocate()
     }
 }
