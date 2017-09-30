@@ -21,6 +21,10 @@ public class EngineLibrary extends EngineProperties {
     public static native @MemberGetter @Const @ByVal tsNCharcb CPP();
 
     public static class tsNCharcb extends Pointer {
+        static { Loader.load(); }
+        private native void allocate();
+        public tsNCharcb() { allocate(); }
+
         public native @Cast("char*") BytePointer pData();
         public native void pData(BytePointer pData);
         public native int iDataLen();
@@ -32,6 +36,8 @@ public class EngineLibrary extends EngineProperties {
         private native void allocate(Callback cb);
         public Engine(Callback cb) { allocate(cb); }
         public native void run();
+        public native void print1(@ByVal tsNCharcb msg);
+        public native void print2(tsNCharcb msg);
     }
 
     public static class Callback extends Pointer {
