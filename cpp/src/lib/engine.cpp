@@ -34,6 +34,16 @@ void Engine::run()
               << ", ai code : "       << aiCode << std::endl;
 }
 
+void Engine::print1(tsNCharcb msg)
+{
+    std::cout << "length : " << msg.iDataLen << ", content : " << msg.pData << std::endl;
+}
+
+void Engine::print2(tsNCharcb *msg)
+{
+    std::cout << "length : " << msg->iDataLen << ", content : " << msg->pData << std::endl;
+}
+
 CbInfo::CbInfo()
 {
     std::cout << "callback info construct" << std::endl;

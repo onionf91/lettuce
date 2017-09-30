@@ -30,6 +30,8 @@ public:
     Engine(Callback *cb);
     ~Engine();
     void run();
+    void print1(tsNCharcb msg);
+    void print2(tsNCharcb *msg);
 };
 
 class Callback
